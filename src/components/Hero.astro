@@ -1,0 +1,61 @@
+---
+import ShanksIllustration from './ShanksIllustration.astro';
+---
+
+<section class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-6xl w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Contenido -->
+      <div class="space-y-6">
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight">
+          Valentín<br />Gonzalez
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 font-medium">
+          Software Engineer
+        </p>
+        <p class="text-lg text-gray-600 max-w-lg">
+          3 años de experiencia construyendo aplicaciones web robustas y escalables. 
+          Actualmente trabajando en <span class="font-semibold">EYSA</span> en la app <span class="font-semibold">MOWIZ</span>.
+        </p>
+        <div class="flex gap-4 pt-4">
+          <a 
+            href="#experience"
+            class="px-8 py-3 bg-black text-white font-medium rounded hover:bg-gray-900 transition"
+          >
+            Ver experiencia
+          </a>
+          <a 
+            href="#contact"
+            class="px-8 py-3 border-2 border-black text-black font-medium rounded hover:bg-black hover:text-white transition"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+
+      <!-- Ilustración Shanks -->
+      <div class="flex justify-center">
+        <div class="w-80 h-80">
+          <ShanksIllustration />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

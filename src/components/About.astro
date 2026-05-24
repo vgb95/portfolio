@@ -1,0 +1,54 @@
+---
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Sobre mí</h2>
+    
+    <div class="space-y-8 text-lg text-gray-700">
+      <p>
+        Soy un Software Engineer con <span class="font-semibold">3 años de experiencia</span> especializado en desarrollo web. 
+        Mi pasión es crear soluciones elegantes y escalables que resuelvan problemas reales.
+      </p>
+      
+      <p>
+        Tengo amplia experiencia trabajando con tecnologías modernas del ecosistema web, desde frontend hasta backend. 
+        Me encanta aprender nuevas herramientas y mantenerme actualizado con las tendencias de la industria.
+      </p>
+      
+      <p>
+        Además de la programación, soy un gran fan de <span class="font-semibold">One Piece</span> 🏴‍☠️ (Shanks es mi personaje favorito, 
+        su filosofía sobre la vida y el viaje me inspira en mi carrera). En mi tiempo libre, disfruto contribuyendo a proyectos 
+        open source y explorando nuevas tecnologías.
+      </p>
+
+      <div class="pt-4">
+        <h3 class="text-xl font-bold mb-4">Habilidades principales:</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'REST APIs', 'Git', 'Docker'].map((skill) => (
+            <div class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium">
+              {skill}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    animation: slideUp 0.8s ease-in-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
