@@ -1,0 +1,135 @@
+<svg class="nika-fruit" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hito Hito no Mi Model Nika devil fruit">
+
+  <defs>
+    <radialGradient id="nikaBody" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#f5f0ff" />
+      <stop offset="100%" stop-color="#e0d8f8" />
+    </radialGradient>
+    <radialGradient id="nikaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.5" />
+      <stop offset="60%" stop-color="#a855f7" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="steamGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <g class="steam-bursts">
+    <circle cx="100" cy="100" r="100" fill="url(#steamGlow)" opacity="0">
+      <animate attributeName="r" values="60;110;60" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.35;0" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="100" cy="100" r="100" fill="url(#steamGlow)" opacity="0">
+      <animate attributeName="r" values="60;120;60" dur="4s" repeatCount="indefinite" begin="1s" />
+      <animate attributeName="opacity" values="0;0.25;0" dur="4s" repeatCount="indefinite" begin="1s" />
+    </circle>
+    <circle cx="100" cy="100" r="100" fill="url(#steamGlow)" opacity="0">
+      <animate attributeName="r" values="60;130;60" dur="5s" repeatCount="indefinite" begin="2s" />
+      <animate attributeName="opacity" values="0;0.2;0" dur="5s" repeatCount="indefinite" begin="2s" />
+    </circle>
+  </g>
+
+  <circle cx="100" cy="100" r="90" fill="url(#nikaGlow)">
+    <animate attributeName="r" values="85;98;85" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+
+  <g class="flame-auras">
+    <path d="M50 70 Q30 50 55 40 Q45 20 70 30" fill="none" stroke="rgba(168,85,247,0.2)" stroke-width="3" stroke-linecap="round">
+      <animate attributeName="d" values="M50 70 Q30 50 55 40 Q45 20 70 30;M48 68 Q28 48 53 38 Q43 18 68 28;M50 70 Q30 50 55 40 Q45 20 70 30" dur="3s" repeatCount="indefinite" />
+    </path>
+    <path d="M150 70 Q170 50 145 40 Q155 20 130 30" fill="none" stroke="rgba(168,85,247,0.2)" stroke-width="3" stroke-linecap="round">
+      <animate attributeName="d" values="M150 70 Q170 50 145 40 Q155 20 130 30;M152 68 Q172 48 147 38 Q157 18 132 28;M150 70 Q170 50 145 40 Q155 20 130 30" dur="3.2s" repeatCount="indefinite" begin="0.5s" />
+    </path>
+  </g>
+
+  <path class="fruit-stem" d="M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z" fill="#c084fc">
+    <animate attributeName="d" values="M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z;M97 40 C114 14 144 8 142 34 C140 58 104 52 97 40 Z;M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z" dur="4s" repeatCount="indefinite" />
+  </path>
+  <path class="fruit-curl" d="M93 41 C80 10 108 0 127 12 C142 22 135 44 118 40" fill="none" stroke="#a855f7" stroke-width="7" stroke-linecap="round" />
+
+  <path class="fruit-body" d="M95 36 C140 34 170 72 164 118 C158 162 118 176 82 168 C46 160 24 126 32 86 C38 52 60 38 95 36 Z" fill="url(#nikaBody)" stroke="#c084fc" stroke-width="5">
+    <animate attributeName="d" values="
+      M95 36 C140 34 170 72 164 118 C158 162 118 176 82 168 C46 160 24 126 32 86 C38 52 60 38 95 36 Z;
+      M95 36 C142 33 172 70 166 116 C160 160 120 174 84 166 C48 158 26 124 34 84 C40 50 62 38 95 36 Z;
+      M95 36 C140 34 170 72 164 118 C158 162 118 176 82 168 C46 160 24 126 32 86 C38 52 60 38 95 36 Z
+    " dur="5s" repeatCount="indefinite" />
+  </path>
+
+  <g class="nika-swirl" fill="none" stroke="#a855f7" stroke-width="5" stroke-linecap="round">
+    <path d="M64 78 C82 56 116 62 112 86 C108 106 82 108 84 92 C86 78 100 80 98 92" opacity="0.85">
+      <animate attributeName="d" values="
+        M64 78 C82 56 116 62 112 86 C108 106 82 108 84 92 C86 78 100 80 98 92;
+        M62 75 C80 53 114 59 110 83 C106 103 80 105 82 89 C84 75 98 77 96 89;
+        M64 78 C82 56 116 62 112 86 C108 106 82 108 84 92 C86 78 100 80 98 92
+      " dur="3.5s" repeatCount="indefinite" />
+    </path>
+    <path d="M110 124 C88 146 54 134 60 110 C64 90 92 92 90 110 C88 126 76 122 78 110" opacity="0.85">
+      <animate attributeName="d" values="
+        M110 124 C88 146 54 134 60 110 C64 90 92 92 90 110 C88 126 76 122 78 110;
+        M112 126 C90 148 56 136 62 112 C66 92 94 94 92 112 C90 128 78 124 80 112;
+        M110 124 C88 146 54 134 60 110 C64 90 92 92 90 110 C88 126 76 122 78 110
+      " dur="3.5s" repeatCount="indefinite" />
+    </path>
+    <path d="M126 78 C140 92 140 118 122 134" opacity="0.65" />
+    <path d="M72 142 C56 132 44 114 48 96" opacity="0.65" />
+  </g>
+
+  <g class="cloud-puffs" fill="none" stroke-linecap="round">
+    <ellipse cx="44" cy="94" rx="12" ry="8" fill="#f5f0ff" opacity="0.5" transform="rotate(-15 44 94)">
+      <animate attributeName="opacity" values="0.3;0.65;0.3" dur="3s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="158" cy="110" rx="13" ry="7" fill="#f5f0ff" opacity="0.45" transform="rotate(12 158 110)">
+      <animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.5s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="100" cy="172" rx="15" ry="8" fill="#f5f0ff" opacity="0.5" transform="rotate(-5 100 172)">
+      <animate attributeName="opacity" values="0.35;0.7;0.35" dur="4s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="132" cy="42" rx="9" ry="6" fill="#f5f0ff" opacity="0.35" transform="rotate(20 132 42)">
+      <animate attributeName="opacity" values="0.2;0.55;0.2" dur="3.2s" repeatCount="indefinite" begin="0.6s" />
+    </ellipse>
+  </g>
+
+  <g class="steam-trails" fill="none" stroke="#ffffff" stroke-linecap="round" opacity="0">
+    <path d="M36 82 C24 74 16 60 20 44" stroke-width="2.5">
+      <animate attributeName="opacity" values="0;0.35;0" dur="4s" repeatCount="indefinite" begin="0.3s" />
+      <animate attributeName="d" values="M36 82 C24 74 16 60 20 44;M36 82 C20 72 12 56 16 38;M36 82 C24 74 16 60 20 44" dur="4s" repeatCount="indefinite" begin="0.3s" />
+    </path>
+    <path d="M164 82 C176 74 184 58 180 42" stroke-width="2.5">
+      <animate attributeName="opacity" values="0;0.3;0" dur="4.5s" repeatCount="indefinite" begin="1.2s" />
+      <animate attributeName="d" values="M164 82 C176 74 184 58 180 42;M164 82 C180 72 188 54 184 36;M164 82 C176 74 184 58 180 42" dur="4.5s" repeatCount="indefinite" begin="1.2s" />
+    </path>
+    <path d="M100 178 C100 190 92 200 80 206" stroke-width="2">
+      <animate attributeName="opacity" values="0;0.25;0" dur="5s" repeatCount="indefinite" begin="2s" />
+      <animate attributeName="d" values="M100 178 C100 190 92 200 80 206;M100 178 C100 194 90 206 76 212;M100 178 C100 190 92 200 80 206" dur="5s" repeatCount="indefinite" begin="2s" />
+    </path>
+  </g>
+</svg>
+
+<style>
+  .nika-fruit {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fruit-body {
+    filter: drop-shadow(0 4px 20px rgba(168, 85, 247, 0.4));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nika-swirl path,
+    .cloud-puffs ellipse,
+    .steam-bursts circle,
+    .steam-trails path,
+    .flame-auras path,
+    .fruit-stem,
+    .fruit-body,
+    circle {
+      animation: none !important;
+    }
+  }
+</style>

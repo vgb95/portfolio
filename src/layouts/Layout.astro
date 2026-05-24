@@ -24,6 +24,8 @@ const baseUrl = import.meta.env.BASE_URL;
     <Navbar />
     <slot />
     <script>
+      const MODES = ['reality', 'red-hair', 'gear-5'];
+
       const readStoredMode = () => {
         try {
           return window.localStorage?.getItem('portfolio-mode');
@@ -41,16 +43,23 @@ const baseUrl = import.meta.env.BASE_URL;
       };
 
       const storedMode = readStoredMode();
-      const prefersRedHair = storedMode === 'red-hair';
+      const initialMode = MODES.includes(storedMode) ? storedMode : 'reality';
 
-      document.body.classList.toggle('red-hair-mode', prefersRedHair);
+      document.body.classList.toggle('red-hair-mode', initialMode === 'red-hair');
+      document.body.classList.toggle('gear-5-mode', initialMode === 'gear-5');
 
       const syncModeButtons = () => {
         const buttons = document.querySelectorAll('[data-mode-toggle]');
         buttons.forEach((button) => {
-          const isRedHair = document.body.classList.contains('red-hair-mode');
-          button.setAttribute('aria-pressed', String(isRedHair));
-          button.setAttribute('data-active-mode', isRedHair ? 'red-hair' : 'reality');
+          let current;
+          if (document.body.classList.contains('gear-5-mode')) {
+            current = 'gear-5';
+          } else if (document.body.classList.contains('red-hair-mode')) {
+            current = 'red-hair';
+          } else {
+            current = 'reality';
+          }
+          button.setAttribute('data-active-mode', current);
         });
       };
 
@@ -63,8 +72,23 @@ const baseUrl = import.meta.env.BASE_URL;
         const button = target.closest('[data-mode-toggle]');
         if (!button) return;
 
-        const isRedHair = document.body.classList.toggle('red-hair-mode');
-        writeStoredMode(isRedHair ? 'red-hair' : 'reality');
+        let current;
+        if (document.body.classList.contains('gear-5-mode')) {
+          current = 'gear-5';
+        } else if (document.body.classList.contains('red-hair-mode')) {
+          current = 'red-hair';
+        } else {
+          current = 'reality';
+        }
+
+        const nextIdx = (MODES.indexOf(current) + 1) % MODES.length;
+        const next = MODES[nextIdx];
+
+        document.body.classList.remove('red-hair-mode', 'gear-5-mode');
+        if (next === 'red-hair') document.body.classList.add('red-hair-mode');
+        else if (next === 'gear-5') document.body.classList.add('gear-5-mode');
+
+        writeStoredMode(next);
         syncModeButtons();
       });
     </script>

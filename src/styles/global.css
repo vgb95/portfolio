@@ -130,6 +130,70 @@ body.red-hair-mode main::before {
   animation: conquerorSpin 18s linear infinite;
 }
 
+body.gear-5-mode {
+  --ink: #1e1b4b;
+  --paper: #faf5ff;
+  --paper-deep: #f0e6ff;
+  --red: #a855f7;
+  --red-dark: #7c3aed;
+  --gold: #fbbf24;
+  --smoke: #4c1d95;
+  --muted: #8b5cf6;
+  --line: rgba(168, 85, 247, 0.22);
+  --shadow-hard: 8px 8px 0 #a855f7;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(168, 85, 247, 0.12), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(251, 191, 36, 0.08), transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6), transparent 50%),
+    #faf5ff;
+  color: var(--ink);
+}
+
+body.gear-5-mode::before {
+  opacity: 0.5;
+  background-image:
+    radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.08) 0 20%, transparent 22%),
+    radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.06) 0 10%, transparent 12%),
+    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.04) 0 30%, transparent 32%),
+    linear-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    46px 46px,
+    46px 46px;
+  mix-blend-mode: normal;
+}
+
+body.gear-5-mode::after {
+  content: 'GEAR 5 / NIKA / DAWN';
+  color: rgba(168, 85, 247, 0.08);
+  text-shadow:
+    0 0 18px rgba(168, 85, 247, 0.3),
+    0 0 42px rgba(168, 85, 247, 0.15);
+}
+
+body.gear-5-mode main::before {
+  content: '';
+  position: fixed;
+  inset: -12vmax;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    conic-gradient(from 45deg at 50% 45%, transparent 0 8deg, rgba(168, 85, 247, 0.2) 8deg 9deg, transparent 10deg 24deg),
+    conic-gradient(from -30deg at 48% 45%, transparent 0 12deg, rgba(251, 191, 36, 0.1) 12deg 13deg, transparent 14deg 30deg);
+  filter: blur(0.6px);
+  opacity: 0.6;
+  animation: gear5Spin 20s linear infinite;
+}
+
+@keyframes gear5Spin {
+  to {
+    transform: rotate(-360deg) scale(1.08);
+  }
+}
+
 ::selection {
   background: var(--red);
   color: var(--paper);
@@ -210,6 +274,14 @@ body.red-hair-mode .hard-panel {
     0 0 42px rgba(255, 31, 56, 0.22);
 }
 
+body.gear-5-mode .hard-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    8px 8px 0 #a855f7,
+    0 0 42px rgba(168, 85, 247, 0.15);
+}
+
 .red-button,
 .ghost-button {
   display: inline-flex;
@@ -238,10 +310,24 @@ body.red-hair-mode .red-button {
     0 0 28px rgba(255, 31, 56, 0.5);
 }
 
+body.gear-5-mode .red-button {
+  color: #faf5ff;
+  box-shadow:
+    5px 5px 0 #7c3aed,
+    0 0 28px rgba(168, 85, 247, 0.4);
+}
+
 body.red-hair-mode .ghost-button {
   background: rgba(9, 3, 4, 0.7);
   color: var(--ink);
   box-shadow: inset 0 0 24px rgba(255, 31, 56, 0.18);
+}
+
+body.gear-5-mode .ghost-button {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  color: var(--ink);
+  box-shadow: inset 0 0 24px rgba(168, 85, 247, 0.12);
 }
 
 .ghost-button {

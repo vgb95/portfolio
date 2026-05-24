@@ -1,5 +1,7 @@
 ---
 import DevilFruit from './DevilFruit.astro';
+import RedHairFruit from './RedHairFruit.astro';
+import NikaFruit from './NikaFruit.astro';
 import ShanksIllustration from './ShanksIllustration.astro';
 ---
 
@@ -12,9 +14,10 @@ import ShanksIllustration from './ShanksIllustration.astro';
 
   <div class="hero-grid">
     <div class="hero-copy reveal">
-      <button class="mode-switch section-kicker" type="button" data-mode-toggle aria-pressed="false">
+      <button class="mode-switch section-kicker" type="button" data-mode-toggle>
         <span>REALITY</span>
         <span>RED HAIR MODE</span>
+        <span>GEAR 5</span>
       </button>
       <p class="local-time">MADRID LOCAL TIME · SHIPPING UNTIL THE LOG POSE BREAKS</p>
 
@@ -36,8 +39,14 @@ import ShanksIllustration from './ShanksIllustration.astro';
       </p>
 
       <div class="devil-note" aria-label="Devil fruit inspired detail">
-        <div class="devil-note-fruit"><DevilFruit /></div>
-        <p>AKUMA NO MI DETAIL UNLOCKED · NO SWIMMING, ONLY SHIPPING</p>
+        <div class="devil-note-fruit">
+          <div class="fruit-mode reality-fruit"><DevilFruit /></div>
+          <div class="fruit-mode redhair-fruit"><RedHairFruit /></div>
+          <div class="fruit-mode nika-fruit"><NikaFruit /></div>
+        </div>
+        <p class="fruit-label reality-label">AKUMA NO MI DETAIL UNLOCKED · NO SWIMMING, ONLY SHIPPING</p>
+        <p class="fruit-label redhair-label">RED HAIR PIRATES · CONQUEROR'S SAKE</p>
+        <p class="fruit-label nika-label">HITO HITO NO MI · MODEL: NIKA · THE DAWN IS COMING</p>
       </div>
 
       <div class="hero-actions">
@@ -149,13 +158,21 @@ import ShanksIllustration from './ShanksIllustration.astro';
     margin-right: 0.15rem;
   }
 
+  .mode-switch span:nth-child(2)::after {
+    content: '|';
+    margin-left: 0.35rem;
+    margin-right: 0.35rem;
+    opacity: 0.3;
+  }
+
   .mode-switch span:last-child::after {
     content: ']';
     margin-left: 0.15rem;
   }
 
   .mode-switch[data-active-mode='reality'] span:first-child,
-  .mode-switch[data-active-mode='red-hair'] span:last-child {
+  .mode-switch[data-active-mode='red-hair'] span:nth-child(2),
+  .mode-switch[data-active-mode='gear-5'] span:last-child {
     border-color: currentColor;
     background: rgba(181, 21, 34, 0.12);
   }
@@ -165,13 +182,23 @@ import ShanksIllustration from './ShanksIllustration.astro';
     text-shadow: 0 0 18px rgba(255, 31, 56, 0.8);
   }
 
-  :global(body.red-hair-mode) .mode-switch[data-active-mode='red-hair'] span:last-child {
+  :global(body.red-hair-mode) .mode-switch[data-active-mode='red-hair'] span:nth-child(2) {
     background: rgba(255, 31, 56, 0.22);
     box-shadow: 0 0 22px rgba(255, 31, 56, 0.55);
   }
 
+  :global(body.gear-5-mode) .mode-switch {
+    color: #a855f7;
+    text-shadow: 0 0 18px rgba(168, 85, 247, 0.8);
+  }
+
+  :global(body.gear-5-mode) .mode-switch[data-active-mode='gear-5'] span:last-child {
+    background: rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 22px rgba(168, 85, 247, 0.5);
+  }
+
   h1 {
-    max-width: 9ch;
+    max-width: 100%;
     font-size: clamp(3.6rem, 8.5vw, 7.2rem);
     font-weight: 900;
   }
@@ -209,16 +236,49 @@ import ShanksIllustration from './ShanksIllustration.astro';
   .devil-note-fruit {
     aspect-ratio: 1;
     transform: rotate(-8deg);
+    position: relative;
+  }
+
+  .devil-note-fruit .fruit-mode {
+    position: absolute;
+    inset: 0;
+  }
+
+  .devil-note-fruit .reality-fruit {
     filter: drop-shadow(5px 5px 0 rgba(18, 13, 12, 0.9));
   }
 
-  .devil-note p {
+  .devil-note-fruit .redhair-fruit {
+    filter: drop-shadow(5px 5px 0 rgba(255, 31, 56, 0.6));
+  }
+
+  .devil-note-fruit .nika-fruit {
+    filter: drop-shadow(5px 5px 0 rgba(168, 85, 247, 0.7));
+  }
+
+  :global(body.red-hair-mode) .fruit-mode.reality-fruit,
+  :global(body.red-hair-mode) .fruit-mode.nika-fruit,
+  :global(body.gear-5-mode) .fruit-mode.reality-fruit,
+  :global(body.gear-5-mode) .fruit-mode.redhair-fruit,
+  :global(body:not(.red-hair-mode):not(.gear-5-mode)) .fruit-mode.redhair-fruit,
+  :global(body:not(.red-hair-mode):not(.gear-5-mode)) .fruit-mode.nika-fruit {
+    display: none;
+  }
+
+  .fruit-label {
+    display: none;
     color: var(--red-dark);
     font-size: 0.75rem;
     font-weight: 900;
     letter-spacing: 0.12em;
     line-height: 1.25;
     text-transform: uppercase;
+  }
+
+  :global(body:not(.red-hair-mode):not(.gear-5-mode)) .fruit-label.reality-label,
+  :global(body.red-hair-mode) .fruit-label.redhair-label,
+  :global(body.gear-5-mode) .fruit-label.nika-label {
+    display: block;
   }
 
   .hero-actions {
@@ -261,6 +321,16 @@ import ShanksIllustration from './ShanksIllustration.astro';
     filter: drop-shadow(0 0 24px rgba(255, 31, 56, 0.72));
   }
 
+  :global(body.gear-5-mode) .conqueror-burst {
+    inset: -6rem;
+    opacity: 1;
+    background:
+      conic-gradient(from 9deg, transparent 0 5deg, rgba(168, 85, 247, 0.7) 5deg 6deg, transparent 7deg 18deg),
+      conic-gradient(from -22deg, transparent 0 10deg, rgba(251, 191, 36, 0.35) 10deg 11deg, transparent 12deg 36deg),
+      radial-gradient(circle, rgba(168, 85, 247, 0.35), transparent 61%);
+    filter: drop-shadow(0 0 24px rgba(168, 85, 247, 0.6));
+  }
+
   .wanted-card::before,
   .wanted-card::after {
     content: '';
@@ -271,10 +341,21 @@ import ShanksIllustration from './ShanksIllustration.astro';
     border: 2px solid var(--ink);
   }
 
+  :global(body.gear-5-mode) .wanted-card::before,
+  :global(body.gear-5-mode) .wanted-card::after {
+    background: rgba(168, 85, 247, 0.7);
+  }
+
   :global(body.red-hair-mode) .wanted-card {
     box-shadow:
       12px 12px 0 #ff1f38,
       0 0 55px rgba(255, 31, 56, 0.38);
+  }
+
+  :global(body.gear-5-mode) .wanted-card {
+    box-shadow:
+      12px 12px 0 #a855f7,
+      0 0 55px rgba(168, 85, 247, 0.35);
   }
 
   .wanted-card::before {

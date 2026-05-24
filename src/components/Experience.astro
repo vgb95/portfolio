@@ -66,6 +66,14 @@ const jobs = [
       #090304;
   }
 
+  :global(body.gear-5-mode) .experience-section {
+    color: #faf5ff;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(168, 85, 247, 0.2), transparent 22rem),
+      repeating-conic-gradient(from 30deg at 70% 30%, rgba(168, 85, 247, 0.1) 0 2deg, transparent 2deg 18deg),
+      #1e1b4b;
+  }
+
   .experience-section .section-kicker {
     color: var(--gold);
   }
@@ -96,6 +104,10 @@ const jobs = [
     font-weight: 800;
   }
 
+  :global(body.gear-5-mode) .experience-header p {
+    color: #c4b5fd;
+  }
+
   .job-list {
     border-top: 2px solid rgba(244, 234, 210, 0.35);
   }
@@ -114,6 +126,10 @@ const jobs = [
     font-size: 2.4rem;
     font-weight: 900;
     line-height: 1;
+  }
+
+  :global(body.gear-5-mode) .job-number {
+    color: #a855f7;
   }
 
   h3 {
@@ -150,6 +166,10 @@ const jobs = [
     content: 'x';
     margin-right: 0.55rem;
     color: var(--red);
+  }
+
+  :global(body.gear-5-mode) li::before {
+    color: #a855f7;
   }
 
   @media (max-width: 900px) {

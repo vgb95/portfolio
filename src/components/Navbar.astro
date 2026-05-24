@@ -76,6 +76,14 @@
       0 0 28px rgba(255, 31, 56, 0.32);
   }
 
+  :global(body.gear-5-mode) .site-nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      5px 5px 0 #a855f7,
+      0 0 28px rgba(168, 85, 247, 0.25);
+  }
+
   .brand {
     display: inline-flex;
     align-items: center;
@@ -95,6 +103,10 @@
 
   :global(body.red-hair-mode) .brand-flag {
     box-shadow: 0 0 18px rgba(255, 31, 56, 0.7);
+  }
+
+  :global(body.gear-5-mode) .brand-flag {
+    box-shadow: 0 0 18px rgba(168, 85, 247, 0.6);
   }
 
   .brand-flag svg {

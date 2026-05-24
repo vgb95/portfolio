@@ -81,6 +81,10 @@ const projects = [
     transform: rotate(18deg);
   }
 
+  :global(body.gear-5-mode) .project-card::after {
+    background: #a855f7;
+  }
+
   .project-card:hover {
     transform: translate(-4px, -4px);
     box-shadow: 12px 12px 0 var(--ink);
@@ -126,6 +130,11 @@ const projects = [
     background: var(--ink);
     color: var(--paper);
     padding: 0.45rem 0.55rem;
+  }
+
+  :global(body.gear-5-mode) .project-card div span {
+    border-color: #7c3aed;
+    background: #7c3aed;
   }
 
   .project-card strong {

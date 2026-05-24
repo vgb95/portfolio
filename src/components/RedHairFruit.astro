@@ -1,0 +1,55 @@
+<svg class="redhair-fruit" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Red Hair pirates devil fruit">
+
+  <defs>
+    <radialGradient id="redhairBody" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#cc1426" />
+      <stop offset="50%" stop-color="#a30f1d" />
+      <stop offset="100%" stop-color="#5c0810" />
+    </radialGradient>
+  </defs>
+
+  <path class="fruit-stem" d="M91 42 C111 18 137 24 132 47 C127 69 98 61 91 42 Z" fill="#0a0203" />
+  <path class="fruit-curl" d="M89 45 C82 19 103 6 119 15 C132 23 127 41 113 38" fill="none" stroke="#0a0203" stroke-width="8" stroke-linecap="round" />
+  <path class="fruit-body" d="M91 38 C130 39 156 72 150 112 C143 154 108 169 75 160 C41 150 23 119 31 84 C38 54 59 39 91 38 Z" fill="url(#redhairBody)" stroke="#0a0203" stroke-width="6" />
+
+  <g class="fruit-scars" fill="none" stroke="#ff5a67" stroke-width="3.5" stroke-linecap="round" opacity="0.6">
+    <path d="M56 86 L70 76 L66 96" />
+    <path d="M124 106 L112 114 L118 96" />
+  </g>
+
+  <g class="fruit-swirl" fill="none" stroke="#ff1f38" stroke-width="5" stroke-linecap="round" opacity="0.8">
+    <path d="M64 80 C84 59 114 68 109 91 C105 109 80 109 83 91 C86 77 100 81 97 92" />
+    <path d="M104 121 C86 141 56 131 62 109 C66 92 91 93 88 109 C86 122 73 119 76 108" />
+    <path d="M122 77 C135 91 134 115 118 128" />
+  </g>
+
+  <path class="fruit-bite" d="M35 95 C48 92 52 107 43 115 C34 122 22 110 35 95 Z" fill="#0a0203" opacity="0.85" />
+</svg>
+
+<style>
+  .redhair-fruit {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fruit-body {
+    filter: drop-shadow(0 0 8px rgba(255, 31, 56, 0.3));
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fruit-swirl {
+      animation: scarPulse 2.4s ease-in-out infinite alternate;
+    }
+    .fruit-scars {
+      animation: scarPulse 3.2s ease-in-out infinite alternate-reverse;
+    }
+  }
+
+  @keyframes scarPulse {
+    to {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+  }
+</style>

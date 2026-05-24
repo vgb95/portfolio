@@ -1,7 +1,10 @@
 ---
 import DevilFruit from './DevilFruit.astro';
+import RedHairFruit from './RedHairFruit.astro';
+import NikaFruit from './NikaFruit.astro';
 
-const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'REST APIs', 'Git', 'Docker'];
+const skills = ['Angular', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'REST APIs', 'Git', 'Docker', 'Kubernetes', 'AWS', 'Java', 'Spring Boot', 'Microservices', 'RabbitMQ', 'Redis'];
+const learning = ['AI Agents', 'Prompt Engineering', 'Agentic Workflows', 'LLM Integration'];
 ---
 
 <section id="manifesto" class="manifesto-section">
@@ -10,7 +13,9 @@ const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'Po
       <div class="section-kicker">/01 Manifesto</div>
       <h2>BUILDING INTERFACES WITH KING'S HAKI.</h2>
       <div class="fruit-stamp" aria-hidden="true">
-        <DevilFruit />
+        <div class="fruit-mode reality-fruit"><DevilFruit /></div>
+        <div class="fruit-mode redhair-fruit"><RedHairFruit /></div>
+        <div class="fruit-mode nika-fruit"><NikaFruit /></div>
       </div>
     </div>
 
@@ -30,6 +35,13 @@ const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'Po
 
       <div class="skill-grid" aria-label="Core skills">
         {skills.map((skill) => <span>{skill}</span>)}
+      </div>
+
+      <div class="learning-section">
+        <div class="learning-kicker">⚓ NOW LEARNING</div>
+        <div class="learning-grid">
+          {learning.map((topic) => <span>{topic}</span>)}
+        </div>
       </div>
     </div>
   </div>
@@ -57,7 +69,33 @@ const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'Po
     width: clamp(7rem, 16vw, 12rem);
     margin-top: 1.5rem;
     transform: rotate(9deg);
+    position: relative;
+  }
+
+  .fruit-stamp .fruit-mode {
+    position: absolute;
+    inset: 0;
+  }
+
+  .fruit-stamp .reality-fruit {
     filter: drop-shadow(7px 7px 0 var(--ink));
+  }
+
+  .fruit-stamp .redhair-fruit {
+    filter: drop-shadow(7px 7px 0 rgba(255, 31, 56, 0.5));
+  }
+
+  .fruit-stamp .nika-fruit {
+    filter: drop-shadow(7px 7px 0 rgba(168, 85, 247, 0.6));
+  }
+
+  :global(body.red-hair-mode) .fruit-stamp .fruit-mode.reality-fruit,
+  :global(body.red-hair-mode) .fruit-stamp .fruit-mode.nika-fruit,
+  :global(body.gear-5-mode) .fruit-stamp .fruit-mode.reality-fruit,
+  :global(body.gear-5-mode) .fruit-stamp .fruit-mode.redhair-fruit,
+  :global(body:not(.red-hair-mode):not(.gear-5-mode)) .fruit-stamp .fruit-mode.redhair-fruit,
+  :global(body:not(.red-hair-mode):not(.gear-5-mode)) .fruit-stamp .fruit-mode.nika-fruit {
+    display: none;
   }
 
   .manifesto-copy {
@@ -118,6 +156,37 @@ const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'Po
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .learning-section {
+    margin-top: 2rem;
+  }
+
+  .learning-kicker {
+    display: inline-flex;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .learning-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .learning-grid span {
+    border: 1.5px solid var(--red-dark);
+    background: transparent;
+    color: var(--ink);
+    padding: 0.4rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
   }
 
