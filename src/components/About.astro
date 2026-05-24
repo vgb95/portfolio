@@ -1,4 +1,6 @@
 ---
+import DevilFruit from './DevilFruit.astro';
+
 const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'REST APIs', 'Git', 'Docker'];
 ---
 
@@ -7,9 +9,13 @@ const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'Po
     <div>
       <div class="section-kicker">/01 Manifesto</div>
       <h2>BUILDING INTERFACES WITH KING'S HAKI.</h2>
+      <div class="fruit-stamp" aria-hidden="true">
+        <DevilFruit />
+      </div>
     </div>
 
     <div class="manifesto-copy hard-panel">
+      <div class="passport-stamp">DEVIL FRUIT USER · FRONTEND TYPE</div>
       <p>
         Builder first, pirate second. I like products that feel fast, codebases that do not scream,
         and teams that ship before the meeting becomes its own filler arc.
@@ -47,10 +53,46 @@ const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'Po
     font-weight: 900;
   }
 
+  .fruit-stamp {
+    width: clamp(7rem, 16vw, 12rem);
+    margin-top: 1.5rem;
+    transform: rotate(9deg);
+    filter: drop-shadow(7px 7px 0 var(--ink));
+  }
+
   .manifesto-copy {
+    position: relative;
     padding: clamp(1.25rem, 3vw, 2rem);
     font-size: clamp(1rem, 2vw, 1.35rem);
     font-weight: 750;
+    overflow: hidden;
+  }
+
+  .manifesto-copy::after {
+    content: '';
+    position: absolute;
+    right: -4rem;
+    bottom: -4rem;
+    width: 13rem;
+    aspect-ratio: 1;
+    border: 2px solid rgba(181, 21, 34, 0.28);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 1rem rgba(181, 21, 34, 0.06),
+      0 0 0 2.2rem rgba(181, 21, 34, 0.04);
+  }
+
+  .passport-stamp {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    border: 2px solid var(--red-dark);
+    color: var(--red-dark);
+    padding: 0.35rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
   }
 
   .manifesto-copy p + p {

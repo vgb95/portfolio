@@ -1,11 +1,21 @@
 ---
+import DevilFruit from './DevilFruit.astro';
 import ShanksIllustration from './ShanksIllustration.astro';
 ---
 
 <section class="hero-section" aria-labelledby="hero-title">
+  <div class="haki-field" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <div class="hero-grid">
     <div class="hero-copy reveal">
-      <div class="section-kicker">[ REALITY / RED HAIR MODE ]</div>
+      <button class="mode-switch section-kicker" type="button" data-mode-toggle aria-pressed="false">
+        <span>REALITY</span>
+        <span>RED HAIR MODE</span>
+      </button>
       <p class="local-time">MADRID LOCAL TIME · SHIPPING UNTIL THE LOG POSE BREAKS</p>
 
       <h1 id="hero-title">
@@ -25,6 +35,11 @@ import ShanksIllustration from './ShanksIllustration.astro';
         <strong>MOWIZ</strong>.
       </p>
 
+      <div class="devil-note" aria-label="Devil fruit inspired detail">
+        <div class="devil-note-fruit"><DevilFruit /></div>
+        <p>AKUMA NO MI DETAIL UNLOCKED · NO SWIMMING, ONLY SHIPPING</p>
+      </div>
+
       <div class="hero-actions">
         <a href="#experience" class="red-button">View bounty</a>
         <a href="#contact" class="ghost-button">Send den den</a>
@@ -32,6 +47,7 @@ import ShanksIllustration from './ShanksIllustration.astro';
     </div>
 
     <aside class="wanted-card reveal" aria-label="Shanks inspired identity mark">
+      <div class="conqueror-burst" aria-hidden="true"></div>
       <div class="wanted-top">WANTED</div>
       <div class="wanted-mark">
         <ShanksIllustration />
@@ -57,6 +73,44 @@ import ShanksIllustration from './ShanksIllustration.astro';
     overflow: hidden;
   }
 
+  .haki-field {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .haki-field span {
+    position: absolute;
+    width: clamp(13rem, 28vw, 30rem);
+    aspect-ratio: 1;
+    border: 2px solid rgba(181, 21, 34, 0.22);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 1.2rem rgba(181, 21, 34, 0.05),
+      inset 0 0 4rem rgba(181, 21, 34, 0.08);
+  }
+
+  .haki-field span:nth-child(1) {
+    top: 13%;
+    right: 8%;
+    --haki-transform: scale(1);
+  }
+
+  .haki-field span:nth-child(2) {
+    top: 21%;
+    right: 17%;
+    transform: rotate(16deg) scale(0.72);
+    --haki-transform: rotate(16deg) scale(0.72);
+  }
+
+  .haki-field span:nth-child(3) {
+    bottom: 18%;
+    left: 6%;
+    transform: scale(0.58);
+    --haki-transform: scale(0.58);
+  }
+
   .hero-grid {
     width: min(1180px, 100%);
     margin-inline: auto;
@@ -73,6 +127,47 @@ import ShanksIllustration from './ShanksIllustration.astro';
     font-weight: 900;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+  }
+
+  .mode-switch {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .mode-switch span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    padding-inline: 0.45rem;
+    border: 2px solid transparent;
+  }
+
+  .mode-switch span:first-child::before {
+    content: '[';
+    margin-right: 0.15rem;
+  }
+
+  .mode-switch span:last-child::after {
+    content: ']';
+    margin-left: 0.15rem;
+  }
+
+  .mode-switch[data-active-mode='reality'] span:first-child,
+  .mode-switch[data-active-mode='red-hair'] span:last-child {
+    border-color: currentColor;
+    background: rgba(181, 21, 34, 0.12);
+  }
+
+  :global(body.red-hair-mode) .mode-switch {
+    color: #ff5a67;
+    text-shadow: 0 0 18px rgba(255, 31, 56, 0.8);
+  }
+
+  :global(body.red-hair-mode) .mode-switch[data-active-mode='red-hair'] span:last-child {
+    background: rgba(255, 31, 56, 0.22);
+    box-shadow: 0 0 22px rgba(255, 31, 56, 0.55);
   }
 
   h1 {
@@ -103,6 +198,29 @@ import ShanksIllustration from './ShanksIllustration.astro';
     color: var(--red-dark);
   }
 
+  .devil-note {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 22rem);
+    gap: 0.85rem;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .devil-note-fruit {
+    aspect-ratio: 1;
+    transform: rotate(-8deg);
+    filter: drop-shadow(5px 5px 0 rgba(18, 13, 12, 0.9));
+  }
+
+  .devil-note p {
+    color: var(--red-dark);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -122,6 +240,27 @@ import ShanksIllustration from './ShanksIllustration.astro';
     transform: rotate(2deg);
   }
 
+  .conqueror-burst {
+    position: absolute;
+    inset: -3.5rem;
+    z-index: -1;
+    background:
+      conic-gradient(from 9deg, transparent 0 8deg, rgba(181, 21, 34, 0.44) 9deg 10deg, transparent 11deg 38deg),
+      radial-gradient(circle, rgba(216, 164, 63, 0.22), transparent 62%);
+    opacity: 0.8;
+    filter: blur(0.2px);
+  }
+
+  :global(body.red-hair-mode) .conqueror-burst {
+    inset: -6rem;
+    opacity: 1;
+    background:
+      conic-gradient(from 9deg, transparent 0 5deg, rgba(255, 31, 56, 0.9) 5deg 6deg, transparent 7deg 18deg),
+      conic-gradient(from -22deg, transparent 0 10deg, rgba(255, 211, 107, 0.28) 10deg 11deg, transparent 12deg 36deg),
+      radial-gradient(circle, rgba(255, 31, 56, 0.42), transparent 61%);
+    filter: drop-shadow(0 0 24px rgba(255, 31, 56, 0.72));
+  }
+
   .wanted-card::before,
   .wanted-card::after {
     content: '';
@@ -130,6 +269,12 @@ import ShanksIllustration from './ShanksIllustration.astro';
     height: 1.6rem;
     background: rgba(181, 21, 34, 0.82);
     border: 2px solid var(--ink);
+  }
+
+  :global(body.red-hair-mode) .wanted-card {
+    box-shadow:
+      12px 12px 0 #ff1f38,
+      0 0 55px rgba(255, 31, 56, 0.38);
   }
 
   .wanted-card::before {
@@ -210,6 +355,25 @@ import ShanksIllustration from './ShanksIllustration.astro';
     .wanted-card {
       animation: floatMark 4s ease-in-out infinite alternate;
     }
+
+    .haki-field span {
+      animation: hakiPulse 3.6s ease-in-out infinite alternate;
+    }
+
+    .haki-field span:nth-child(2) {
+      animation-delay: 500ms;
+    }
+
+    .haki-field span:nth-child(3) {
+      animation-delay: 900ms;
+    }
+  }
+
+  @keyframes hakiPulse {
+    to {
+      transform: var(--haki-transform) scale(1.08);
+      opacity: 0.45;
+    }
   }
 
   @media (max-width: 860px) {
@@ -231,6 +395,10 @@ import ShanksIllustration from './ShanksIllustration.astro';
 
     h1 {
       font-size: clamp(3.4rem, 19vw, 5rem);
+    }
+
+    .devil-note {
+      grid-template-columns: 3.8rem 1fr;
     }
   }
 </style>
