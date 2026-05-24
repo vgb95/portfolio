@@ -1,0 +1,156 @@
+<nav class="site-nav" aria-label="Primary navigation">
+  <a href="#" class="brand" aria-label="Back to top">
+    <span>VG</span>
+    <strong>RED HAIR DEV</strong>
+  </a>
+
+  <div class="nav-links">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#experience">Bounties</a>
+    <a href="#projects">Builds</a>
+    <a href="#contact">Den Den</a>
+  </div>
+
+  <button class="menu-button" id="mobile-menu-btn" aria-label="Open navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#experience">Bounties</a>
+    <a href="#projects">Builds</a>
+    <a href="#contact">Den Den</a>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
+<style>
+  .site-nav {
+    position: fixed;
+    inset: 1rem 1rem auto;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 0.7rem;
+    border: 2px solid var(--ink);
+    background: rgba(244, 234, 210, 0.86);
+    box-shadow: 5px 5px 0 var(--ink);
+    backdrop-filter: blur(12px);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .brand span {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    place-items: center;
+    border: 2px solid var(--ink);
+    background: var(--red);
+    color: var(--paper);
+    font-weight: 900;
+  }
+
+  .brand strong,
+  .nav-links a,
+  .mobile-menu a {
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+  }
+
+  .nav-links a,
+  .mobile-menu a {
+    padding: 0.75rem 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links a:hover,
+  .mobile-menu a:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .menu-button {
+    display: none;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+  }
+
+  .menu-button span {
+    display: block;
+    width: 1.2rem;
+    height: 2px;
+    margin: 0.18rem auto;
+    background: var(--ink);
+  }
+
+  .mobile-menu {
+    display: none;
+    grid-column: 1 / -1;
+    border-top: 2px solid var(--ink);
+    padding-top: 0.5rem;
+  }
+
+  .mobile-menu.is-open {
+    display: grid;
+  }
+
+  @media (max-width: 760px) {
+    .site-nav {
+      inset: 0.6rem 0.6rem auto;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .menu-button {
+      display: block;
+    }
+  }
+</style>

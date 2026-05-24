@@ -1,59 +1,77 @@
----
----
-
-<section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-4xl md:text-5xl font-bold mb-6">Conectemos</h2>
-    <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-      Estoy abierto a nuevas oportunidades, colaboraciones y conversaciones interesantes. 
-      No dudes en contactarme por cualquier motivo.
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-      <a 
-        href="mailto:valentin.gonzalez@example.com"
-        class="px-8 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition"
-      >
-        Enviar email
-      </a>
-      <a 
-        href="https://github.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="px-8 py-4 border-2 border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white transition"
-      >
-        GitHub
-      </a>
-      <a 
-        href="https://linkedin.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition"
-      >
-        LinkedIn
-      </a>
+<section id="contact" class="contact-section">
+  <div class="section-shell contact-grid">
+    <div>
+      <div class="section-kicker">/04 Den Den Mushi</div>
+      <h2>REACH THE CREW.</h2>
+      <p>
+        Open to opportunities, collaborations, and cursed technical conversations.
+        Si hay una buena aventura, manda señal.
+      </p>
     </div>
 
-    <div class="space-y-4 text-gray-600">
-      <p class="text-sm">© 2026 Valentín González. Construido con Astro + Tailwind CSS.</p>
-      <p class="text-xs">Inspirado en luffy.sh 🏴‍☠️</p>
+    <div class="contact-panel hard-panel">
+      <a href="mailto:valentingb19@outlook
+      .com" class="red-button">Email</a>
+      <a href="https://github.com/vgb95" target="_blank" rel="noopener noreferrer" class="ghost-button">GitHub</a>
+      <a href="https://www.linkedin.com/in/valentin-gonzalez-4b8a75a8/" target="_blank" rel="noopener noreferrer" class="ghost-button">LinkedIn</a>
+
+      <div class="footer-note">
+        <span class="scar-line" aria-hidden="true"></span>
+        <p>© 2026 Valentín González · Built with Astro + Tailwind · Inspired by luffy.sh, sailing under red hair energy.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  section {
-    animation: slideUp 0.8s ease-in-out;
+  .contact-section {
+    padding-bottom: 2rem;
   }
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(20rem, 0.85fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  h2 {
+    max-width: 9ch;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 900;
+  }
+
+  p {
+    max-width: 34rem;
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 800;
+  }
+
+  .contact-panel {
+    display: grid;
+    gap: 0.9rem;
+    padding: clamp(1.1rem, 3vw, 2rem);
+  }
+
+  .footer-note {
+    margin-top: 1rem;
+    border-top: 2px solid var(--line);
+    padding-top: 1rem;
+  }
+
+  .footer-note p {
+    margin-top: 0.7rem;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 780px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

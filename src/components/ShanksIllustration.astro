@@ -1,139 +1,90 @@
----
-// Componente SVG de Shanks inspirado en el estilo de luffy.sh
----
-
 <svg
   viewBox="0 0 400 400"
   xmlns="http://www.w3.org/2000/svg"
-  class="w-full h-full"
+  role="img"
+  aria-labelledby="shanks-title shanks-desc"
 >
-  <!-- Define filtro halftone -->
+  <title id="shanks-title">Abstract Shanks inspired mark</title>
+  <desc id="shanks-desc">A red and black graphic mark inspired by Shanks, with scar cuts, cloak shapes, and haki rings.</desc>
   <defs>
-    <filter id="halftone">
-      <feTurbulence baseFrequency="0.02" numOctaves="3" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
-    </filter>
-    
-    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f4a460;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d2691e;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="hairGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    <pattern id="grain" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#f4ead2" opacity="0.2" />
+      <circle cx="7" cy="5" r="1" fill="#f4ead2" opacity="0.14" />
+      <circle cx="4" cy="9" r="0.8" fill="#f4ead2" opacity="0.2" />
+    </pattern>
+    <linearGradient id="redSlash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0202c" />
+      <stop offset="55%" stop-color="#b51522" />
+      <stop offset="100%" stop-color="#6d0710" />
     </linearGradient>
   </defs>
 
-  <!-- Fondo del círculo -->
-  <circle cx="200" cy="200" r="195" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+  <rect width="400" height="400" fill="#120d0c" />
+  <rect width="400" height="400" fill="url(#grain)" />
 
-  <!-- Cabello (estilo Shanks) -->
-  <path
-    d="M 100 150 Q 80 120 120 80 Q 200 20 280 80 Q 320 120 300 150 Z"
-    fill="url(#hairGradient)"
-    filter="url(#halftone)"
-  />
-  
-  <!-- Pelos adicionales para darle volumen -->
-  <path
-    d="M 110 140 Q 90 110 100 70"
-    stroke="#654321"
-    stroke-width="8"
-    fill="none"
-    stroke-linecap="round"
-  />
-  
-  <path
-    d="M 290 140 Q 310 110 300 70"
-    stroke="#654321"
-    stroke-width="8"
-    fill="none"
-    stroke-linecap="round"
-  />
+  <g class="haki-rings" fill="none" stroke="#f4ead2" stroke-width="2" opacity="0.35">
+    <circle cx="200" cy="205" r="154" />
+    <circle cx="200" cy="205" r="112" />
+    <circle cx="200" cy="205" r="72" />
+  </g>
 
-  <!-- Cicatriz característica de Shanks (sobre el ojo izquierdo) -->
-  <path
-    d="M 140 160 L 160 180 L 150 190"
-    stroke="#8B0000"
-    stroke-width="4"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <path d="M72 333 C94 225 116 127 200 57 C284 127 306 225 328 333 Z" fill="#f4ead2" />
+  <path d="M92 333 C112 245 134 155 200 89 C266 155 288 245 308 333 Z" fill="#b51522" />
+  <path d="M130 333 C148 237 166 179 200 129 C234 179 252 237 270 333 Z" fill="#120d0c" />
 
-  <!-- Cara -->
-  <circle cx="200" cy="200" r="90" fill="url(#skinGradient)" filter="url(#halftone)" />
+  <path class="slash slash-one" d="M111 97 L154 89 L289 328 L245 336 Z" fill="url(#redSlash)" />
+  <path class="slash slash-two" d="M197 59 L237 75 L165 340 L125 324 Z" fill="url(#redSlash)" />
+  <path class="slash slash-three" d="M277 102 L314 129 L99 305 L67 275 Z" fill="url(#redSlash)" />
 
-  <!-- Ojos -->
-  <!-- Ojo derecho (con cicatriz) -->
-  <ellipse cx="160" cy="180" rx="12" ry="18" fill="#fff" />
-  <circle cx="160" cy="185" r="8" fill="#000" />
-  <circle cx="162" cy="183" r="3" fill="#fff" />
-  
-  <!-- Ojo izquierdo (oculto por la cicatriz, solo visible parcialmente) -->
-  <ellipse cx="240" cy="180" rx="12" ry="18" fill="#fff" />
-  <circle cx="240" cy="185" r="8" fill="#000" />
-  <circle cx="242" cy="183" r="3" fill="#fff" />
+  <g stroke="#f4ead2" stroke-linecap="square" stroke-width="8">
+    <path d="M116 212 H284" />
+    <path d="M200 108 V318" />
+  </g>
 
-  <!-- Nariz -->
-  <path
-    d="M 200 190 L 200 220"
-    stroke="#d2691e"
-    stroke-width="3"
-    stroke-linecap="round"
-  />
+  <g fill="#120d0c">
+    <circle cx="153" cy="190" r="11" />
+    <circle cx="247" cy="190" r="11" />
+  </g>
 
-  <!-- Sonrisa característica -->
-  <path
-    d="M 170 240 Q 200 260 230 240"
-    stroke="#8B4513"
-    stroke-width="4"
-    fill="none"
-    stroke-linecap="round"
-  />
+  <path d="M153 261 C176 282 224 282 247 261" fill="none" stroke="#120d0c" stroke-width="8" stroke-linecap="square" />
 
-  <!-- Brazo izquierdo (missing arm side) - mostrar la ausencia -->
-  <text x="130" y="300" font-size="24" fill="#999" text-anchor="middle">🏴‍☠️</text>
-
-  <!-- Cabello rojo distintivo -->
-  <path
-    d="M 120 140 Q 110 180 140 220"
-    stroke="#DC143C"
-    stroke-width="6"
-    fill="none"
-    stroke-linecap="round"
-    opacity="0.7"
-  />
-  
-  <path
-    d="M 280 140 Q 290 180 260 220"
-    stroke="#DC143C"
-    stroke-width="6"
-    fill="none"
-    stroke-linecap="round"
-    opacity="0.7"
-  />
-
-  <!-- Línea decorativa inferior -->
-  <line x1="100" y1="330" x2="300" y2="330" stroke="#000" stroke-width="1" opacity="0.2" />
-  
-  <!-- Texto "Shanks" -->
-  <text 
-    x="200" 
-    y="360" 
-    font-family="Arial, sans-serif" 
-    font-size="20" 
-    font-weight="bold"
-    text-anchor="middle"
-    fill="#000"
-  >
-    SHANKS
+  <text x="200" y="374" text-anchor="middle" fill="#f4ead2" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="5">
+    RED HAIR
   </text>
 </svg>
 
 <style>
   svg {
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .slash {
+    mix-blend-mode: multiply;
+    transform-origin: 200px 200px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .haki-rings {
+      animation: pulseHaki 2.8s ease-in-out infinite alternate;
+    }
+
+    .slash-one {
+      animation: scarShift 3.2s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes pulseHaki {
+    to {
+      opacity: 0.62;
+      transform: scale(1.025);
+    }
+  }
+
+  @keyframes scarShift {
+    to {
+      transform: translateX(4px);
+    }
   }
 </style>

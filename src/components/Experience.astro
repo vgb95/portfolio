@@ -1,69 +1,157 @@
 ---
+const jobs = [
+  {
+    number: '01',
+    role: 'Software Engineer',
+    company: 'EYSA',
+    date: 'APR 2026 - CURRENT',
+    tag: 'MOWIZ APP',
+    lines: ['Shipping product features', 'Cross-functional squad work', 'Code quality without killing velocity'],
+  },
+  {
+    number: '02',
+    role: 'Software Engineer',
+    company: 'NTT DATA',
+    date: 'MAR 2023 - APR 2026',
+    tag: 'IBERDROLA COMMERCIAL WEBS',
+    lines: ['Frontend and backend delivery', 'Performance and UX improvements', 'Reviews, bugs, releases, repeat'],
+  },
+];
 ---
 
-<section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center">Experiencia</h2>
-    
-    <div class="space-y-12">
-      <!-- EYSA - Actual -->
-      <div class="relative pl-8 border-l-4 border-blue-600">
-        <div class="absolute -left-3 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-        
-        <div>
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-            <h3 class="text-2xl font-bold">Software Engineer - EYSA</h3>
-            <span class="text-sm text-gray-600 font-medium">Abril 2026 - Actualidad</span>
-          </div>
-          
-          <p class="text-lg text-blue-600 font-semibold mb-4">App MOWIZ</p>
-          
-          <ul class="space-y-2 text-gray-700 list-disc list-inside">
-            <li>Desarrollo de features en la aplicación MOWIZ</li>
-            <li>Colaboración con equipos cross-functional</li>
-            <li>Mejora continua del código y arquitectura</li>
-          </ul>
-        </div>
+<section id="experience" class="experience-section">
+  <div class="section-shell">
+    <div class="experience-header">
+      <div>
+        <div class="section-kicker">/02 Bounties</div>
+        <h2>PROOF OF WORK, NO FILLER ARC.</h2>
       </div>
+      <p>
+        Current bounty: turning product chaos into web features that survive real users.
+        Sin drama. Bueno, a veces con un poco.
+      </p>
+    </div>
 
-      <!-- NTT DATA -->
-      <div class="relative pl-8 border-l-4 border-gray-300">
-        <div class="absolute -left-3 top-0 w-4 h-4 bg-gray-400 rounded-full"></div>
-        
-        <div>
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-            <h3 class="text-2xl font-bold">Software Engineer - NTT DATA</h3>
-            <span class="text-sm text-gray-600 font-medium">Marzo 2023 - Abril 2026</span>
+    <div class="job-list">
+      {jobs.map((job) => (
+        <article class="job-row">
+          <div class="job-number">{job.number}</div>
+          <div>
+            <h3>{job.role} · {job.company}</h3>
+            <p class="job-tag">{job.tag}</p>
           </div>
-          
-          <p class="text-lg text-gray-600 font-semibold mb-4">Proyecto: Web comerciales Iberdrola</p>
-          
-          <ul class="space-y-2 text-gray-700 list-disc list-inside">
-            <li>Desarrollo de aplicaciones web para portales comerciales de Iberdrola</li>
-            <li>Implementación de features frontend y backend</li>
-            <li>Trabajo con tecnologías modernas del ecosistema web</li>
-            <li>Mejora de performance y experiencia del usuario</li>
-            <li>Colaboración en equipo y code reviews</li>
+          <div class="job-date">{job.date}</div>
+          <ul>
+            {job.lines.map((line) => <li>{line}</li>)}
           </ul>
-        </div>
-      </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  section {
-    animation: slideUp 0.8s ease-in-out;
+  .experience-section {
+    color: var(--paper);
+    background:
+      linear-gradient(135deg, rgba(181, 21, 34, 0.22), transparent 36rem),
+      var(--ink);
   }
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
+  .experience-section .section-kicker {
+    color: var(--gold);
+  }
+
+  .experience-section .section-kicker::before {
+    background: var(--gold);
+  }
+
+  .experience-header {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: end;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    max-width: 11ch;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+  }
+
+  .experience-header p {
+    border-left: 3px solid var(--red);
+    padding-left: 1rem;
+    color: #ead8b7;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 800;
+  }
+
+  .job-list {
+    border-top: 2px solid rgba(244, 234, 210, 0.35);
+  }
+
+  .job-row {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) auto minmax(18rem, 0.75fr);
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.35rem 0;
+    border-bottom: 2px solid rgba(244, 234, 210, 0.35);
+  }
+
+  .job-number {
+    color: var(--red);
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  h3 {
+    font-size: clamp(1.45rem, 3vw, 2.7rem);
+    font-weight: 900;
+  }
+
+  .job-tag,
+  .job-date,
+  li {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .job-tag {
+    margin-top: 0.4rem;
+    color: var(--gold);
+  }
+
+  .job-date {
+    color: #d7c9ab;
+    white-space: nowrap;
+  }
+
+  ul {
+    display: grid;
+    gap: 0.45rem;
+    list-style: none;
+  }
+
+  li::before {
+    content: 'x';
+    margin-right: 0.55rem;
+    color: var(--red);
+  }
+
+  @media (max-width: 900px) {
+    .experience-header,
+    .job-row {
+      grid-template-columns: 1fr;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .job-date {
+      white-space: normal;
     }
   }
 </style>

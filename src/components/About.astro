@@ -1,54 +1,87 @@
 ---
+const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'REST APIs', 'Git', 'Docker'];
 ---
 
-<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Sobre mí</h2>
-    
-    <div class="space-y-8 text-lg text-gray-700">
+<section id="manifesto" class="manifesto-section">
+  <div class="section-shell manifesto-grid">
+    <div>
+      <div class="section-kicker">/01 Manifesto</div>
+      <h2>BUILDING INTERFACES WITH KING'S HAKI.</h2>
+    </div>
+
+    <div class="manifesto-copy hard-panel">
       <p>
-        Soy un Software Engineer con <span class="font-semibold">3 años de experiencia</span> especializado en desarrollo web. 
-        Mi pasión es crear soluciones elegantes y escalables que resuelvan problemas reales.
+        Builder first, pirate second. I like products that feel fast, codebases that do not scream,
+        and teams that ship before the meeting becomes its own filler arc.
       </p>
-      
       <p>
-        Tengo amplia experiencia trabajando con tecnologías modernas del ecosistema web, desde frontend hasta backend. 
-        Me encanta aprender nuevas herramientas y mantenerme actualizado con las tendencias de la industria.
+        Soy Software Engineer con <strong>3 años de experiencia</strong> en web. Frontend, backend,
+        bugs raros, product details, y ese momento precioso en el que todo compila.
       </p>
-      
       <p>
-        Además de la programación, soy un gran fan de <span class="font-semibold">One Piece</span> 🏴‍☠️ (Shanks es mi personaje favorito, 
-        su filosofía sobre la vida y el viaje me inspira en mi carrera). En mi tiempo libre, disfruto contribuyendo a proyectos 
-        open source y explorando nuevas tecnologías.
+        One Piece brainrot included. Shanks energy: calm until production is on fire, then decisive.
       </p>
 
-      <div class="pt-4">
-        <h3 class="text-xl font-bold mb-4">Habilidades principales:</h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'PostgreSQL', 'REST APIs', 'Git', 'Docker'].map((skill) => (
-            <div class="px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium">
-              {skill}
-            </div>
-          ))}
-        </div>
+      <div class="skill-grid" aria-label="Core skills">
+        {skills.map((skill) => <span>{skill}</span>)}
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  section {
-    animation: slideUp 0.8s ease-in-out;
+  .manifesto-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(18, 13, 12, 0.07) 100%);
   }
 
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  h2 {
+    max-width: 9ch;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+  }
+
+  .manifesto-copy {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 750;
+  }
+
+  .manifesto-copy p + p {
+    margin-top: 1rem;
+  }
+
+  .manifesto-copy strong {
+    color: var(--red-dark);
+  }
+
+  .skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 2rem;
+  }
+
+  .skill-grid span {
+    border: 2px solid var(--ink);
+    background: var(--red);
+    color: var(--paper);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 800px) {
+    .manifesto-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
