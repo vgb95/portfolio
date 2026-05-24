@@ -14,10 +14,12 @@ import ShanksIllustration from './ShanksIllustration.astro';
 
   <div class="hero-grid">
     <div class="hero-copy reveal">
-      <button class="mode-switch section-kicker" type="button" data-mode-toggle>
-        <span>REALITY</span>
-        <span>RED HAIR MODE</span>
-        <span>GEAR 5</span>
+      <button class="mode-switch" type="button" data-mode-toggle>
+        <span class="mode-option" data-mode="reality">REALITY</span>
+        <span class="mode-sep" aria-hidden="true">/</span>
+        <span class="mode-option" data-mode="red-hair">RED HAIR MODE</span>
+        <span class="mode-sep" aria-hidden="true">/</span>
+        <span class="mode-option" data-mode="gear-5">GEAR 5</span>
       </button>
       <p class="local-time">MADRID LOCAL TIME · SHIPPING UNTIL THE LOG POSE BREAKS</p>
 
@@ -139,40 +141,59 @@ import ShanksIllustration from './ShanksIllustration.astro';
   }
 
   .mode-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
     border: 0;
     background: transparent;
     cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    margin-bottom: 1.25rem;
   }
 
-  .mode-switch span {
+  .mode-switch::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    background: var(--red);
+    margin-right: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  .mode-option {
     position: relative;
     display: inline-flex;
     align-items: center;
     min-height: 1.8rem;
-    padding-inline: 0.45rem;
+    padding: 0 0.5rem;
     border: 2px solid transparent;
   }
 
-  .mode-switch span:first-child::before {
-    content: '[';
-    margin-right: 0.15rem;
-  }
-
-  .mode-switch span:nth-child(2)::after {
-    content: '|';
-    margin-left: 0.35rem;
-    margin-right: 0.35rem;
+  .mode-sep {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.1rem;
     opacity: 0.3;
+    color: var(--red-dark);
+    font-weight: 500;
   }
 
-  .mode-switch span:last-child::after {
-    content: ']';
-    margin-left: 0.15rem;
+  :global(body.red-hair-mode) .mode-sep {
+    color: #ff5a67;
   }
 
-  .mode-switch[data-active-mode='reality'] span:first-child,
-  .mode-switch[data-active-mode='red-hair'] span:nth-child(2),
-  .mode-switch[data-active-mode='gear-5'] span:last-child {
+  :global(body.gear-5-mode) .mode-sep {
+    color: #a855f7;
+  }
+
+  .mode-switch[data-active-mode='reality'] .mode-option[data-mode='reality'],
+  .mode-switch[data-active-mode='red-hair'] .mode-option[data-mode='red-hair'],
+  .mode-switch[data-active-mode='gear-5'] .mode-option[data-mode='gear-5'] {
     border-color: currentColor;
     background: rgba(181, 21, 34, 0.12);
   }
@@ -182,7 +203,7 @@ import ShanksIllustration from './ShanksIllustration.astro';
     text-shadow: 0 0 18px rgba(255, 31, 56, 0.8);
   }
 
-  :global(body.red-hair-mode) .mode-switch[data-active-mode='red-hair'] span:nth-child(2) {
+  :global(body.red-hair-mode) .mode-switch[data-active-mode='red-hair'] .mode-option[data-mode='red-hair'] {
     background: rgba(255, 31, 56, 0.22);
     box-shadow: 0 0 22px rgba(255, 31, 56, 0.55);
   }
@@ -192,7 +213,7 @@ import ShanksIllustration from './ShanksIllustration.astro';
     text-shadow: 0 0 18px rgba(168, 85, 247, 0.8);
   }
 
-  :global(body.gear-5-mode) .mode-switch[data-active-mode='gear-5'] span:last-child {
+  :global(body.gear-5-mode) .mode-switch[data-active-mode='gear-5'] .mode-option[data-mode='gear-5'] {
     background: rgba(168, 85, 247, 0.2);
     box-shadow: 0 0 22px rgba(168, 85, 247, 0.5);
   }

@@ -46,12 +46,12 @@
     </path>
   </g>
 
-  <path class="fruit-stem" d="M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z" fill="#c084fc">
+  <path class="fruit-stem" d="M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z" fill="#7c3aed">
     <animate attributeName="d" values="M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z;M97 40 C114 14 144 8 142 34 C140 58 104 52 97 40 Z;M97 40 C112 16 142 10 140 36 C138 60 104 54 97 40 Z" dur="4s" repeatCount="indefinite" />
   </path>
-  <path class="fruit-curl" d="M93 41 C80 10 108 0 127 12 C142 22 135 44 118 40" fill="none" stroke="#a855f7" stroke-width="7" stroke-linecap="round" />
+  <path class="fruit-curl" d="M93 41 C80 10 108 0 127 12 C142 22 135 44 118 40" fill="none" stroke="#6d28d9" stroke-width="7" stroke-linecap="round" />
 
-  <path class="fruit-body" d="M95 36 C140 34 170 72 164 118 C158 162 118 176 82 168 C46 160 24 126 32 86 C38 52 60 38 95 36 Z" fill="url(#nikaBody)" stroke="#c084fc" stroke-width="5">
+  <path class="fruit-body" d="M95 36 C140 34 170 72 164 118 C158 162 118 176 82 168 C46 160 24 126 32 86 C38 52 60 38 95 36 Z" fill="url(#nikaBody)" stroke="#6d28d9" stroke-width="5">
     <animate attributeName="d" values="
       M95 36 C140 34 170 72 164 118 C158 162 118 176 82 168 C46 160 24 126 32 86 C38 52 60 38 95 36 Z;
       M95 36 C142 33 172 70 166 116 C160 160 120 174 84 166 C48 158 26 124 34 84 C40 50 62 38 95 36 Z;
@@ -59,7 +59,7 @@
     " dur="5s" repeatCount="indefinite" />
   </path>
 
-  <g class="nika-swirl" fill="none" stroke="#a855f7" stroke-width="5" stroke-linecap="round">
+  <g class="nika-swirl" fill="none" stroke="#6d28d9" stroke-width="5" stroke-linecap="round">
     <path d="M64 78 C82 56 116 62 112 86 C108 106 82 108 84 92 C86 78 100 80 98 92" opacity="0.85">
       <animate attributeName="d" values="
         M64 78 C82 56 116 62 112 86 C108 106 82 108 84 92 C86 78 100 80 98 92;
@@ -117,7 +117,11 @@
   }
 
   .fruit-body {
-    filter: drop-shadow(0 4px 20px rgba(168, 85, 247, 0.4));
+    filter: drop-shadow(0 0 14px rgba(109, 40, 217, 0.5)) drop-shadow(0 0 35px rgba(109, 40, 217, 0.25));
+  }
+
+  .nika-swirl {
+    filter: drop-shadow(0 0 6px rgba(109, 40, 217, 0.35));
   }
 
   @media (prefers-reduced-motion: reduce) {
