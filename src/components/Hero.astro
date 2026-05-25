@@ -490,17 +490,97 @@ import ShanksIllustration from './ShanksIllustration.astro';
     }
   }
 
+  @media (max-width: 600px) {
+    .mode-switch {
+      flex-wrap: wrap;
+      row-gap: 0.25rem;
+      font-size: 0.7rem;
+    }
+
+    .mode-switch::before {
+      width: 1.8rem;
+    }
+
+    .mode-option {
+      padding: 0.15rem 0.4rem;
+      min-height: 1.5rem;
+    }
+
+    .local-time {
+      font-size: 0.65rem;
+      word-break: break-word;
+    }
+  }
+
   @media (max-width: 520px) {
     .hero-section {
-      padding-top: 6.5rem;
+      padding: 6.5rem 0.75rem 3rem;
+      overflow-x: hidden;
     }
 
     h1 {
-      font-size: clamp(3.4rem, 19vw, 5rem);
+      font-size: clamp(2.6rem, 12vw, 3.4rem);
+      word-break: break-word;
+    }
+
+    .hero-roles {
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      gap: 0.15rem;
+    }
+
+    .hero-lead {
+      font-size: 0.95rem;
     }
 
     .devil-note {
-      grid-template-columns: 3.8rem 1fr;
+      grid-template-columns: 3rem 1fr;
+      gap: 0.5rem;
+    }
+
+    .fruit-label {
+      font-size: 0.6rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hero-actions a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .wanted-card {
+      max-width: 100%;
+      margin-inline: 0;
+      transform: none;
+    }
+
+    .conqueror-burst {
+      display: none;
+    }
+
+    .wanted-top {
+      font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+  }
+
+  @media (max-width: 380px) {
+    h1 {
+      font-size: clamp(2rem, 10vw, 2.6rem);
+    }
+
+    .hero-roles {
+      font-size: 0.8rem;
+    }
+
+    .hero-lead {
+      font-size: 0.85rem;
+    }
+
+    .local-time {
+      font-size: 0.55rem;
     }
   }
 </style>

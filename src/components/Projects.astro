@@ -151,4 +151,28 @@ const projects = [
       min-height: 16rem;
     }
   }
+
+  @media (max-width: 520px) {
+    h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .projects-title p {
+      font-size: 0.9rem;
+    }
+
+    .project-card {
+      min-height: 14rem;
+      padding: 1rem;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 8vw, 2rem);
+    }
+
+    .project-card div span {
+      font-size: 0.68rem;
+      padding: 0.35rem 0.45rem;
+    }
+  }
 </style>

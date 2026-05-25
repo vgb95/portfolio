@@ -182,4 +182,29 @@ const jobs = [
       white-space: normal;
     }
   }
+
+  @media (max-width: 520px) {
+    h2 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .experience-header p {
+      font-size: 0.9rem;
+      padding-left: 0.75rem;
+    }
+
+    .job-number {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: clamp(1.1rem, 5vw, 1.45rem);
+    }
+
+    .job-tag,
+    .job-date,
+    li {
+      font-size: 0.7rem;
+    }
+  }
 </style>
